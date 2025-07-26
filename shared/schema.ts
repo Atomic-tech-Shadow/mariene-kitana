@@ -50,8 +50,8 @@ export const portfolioData = {
   },
   contact: {
     email: "mariene.kitana@email.com",
-    phone: "+33 6 12 34 56 78",
-    location: "Paris, France"
+    phone: "+225 05 46 27 43 13",
+    location: "Côte d'Ivoire"
   },
   stats: {
     projects: "100+",

@@ -66,7 +66,8 @@ export default function ContactSection() {
       icon: Phone,
       title: "Téléphone",
       value: portfolioData.contact.phone,
-      href: `tel:${portfolioData.contact.phone}`
+      href: `tel:${portfolioData.contact.phone}`,
+      display: "Appeler Mariène"
     },
     {
       icon: MapPin,
@@ -122,12 +123,17 @@ export default function ContactSection() {
                     {info.href ? (
                       <a 
                         href={info.href}
-                        className="text-neutral hover:text-primary transition-colors duration-200"
+                        className="text-neutral hover:text-primary transition-colors duration-200 font-medium"
                       >
                         {info.value}
+                        {info.title === "Téléphone" && (
+                          <span className="block text-sm text-pink-600 mt-1">
+                            📞 Appeler ma reine d'amour
+                          </span>
+                        )}
                       </a>
                     ) : (
-                      <p className="text-neutral">{info.value}</p>
+                      <p className="text-neutral font-medium">{info.value}</p>
                     )}
                   </div>
                 </motion.div>
