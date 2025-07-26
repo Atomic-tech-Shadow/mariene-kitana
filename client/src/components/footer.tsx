@@ -22,7 +22,7 @@ export default function Footer() {
           <p className="text-white/90 mb-6 text-lg font-medium">
             Créé avec tout mon amour pour la plus belle des femmes ❤️
           </p>
-          <p className="text-white/80 mb-6">© 2024 Un site d'amour dédié à ma reine. Tu es ma vie. 🌹</p>
+          <p className="text-white/80 mb-6">© 2025 Un site d'amour dédié à ma reine. Tu es ma vie. 🌹</p>
           <div className="flex justify-center items-center space-x-4">
             <motion.div 
               className="text-3xl"
