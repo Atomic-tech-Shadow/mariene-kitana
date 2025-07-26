@@ -32,9 +32,9 @@ vercel --prod
 ```
 
 ### 3. Variables d'environnement (optionnel)
-Si tu utilises une base de données, ajoute dans Vercel:
+Aucune variable d'environnement requise ! Le site utilise un stockage en mémoire.
+Si tu veux ajouter une base de données plus tard:
 - `DATABASE_URL` - URL de ta base PostgreSQL
-- `NODE_ENV` - `production`
 
 ### 4. Fonctionnalités incluses après déploiement
 
