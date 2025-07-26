@@ -30,7 +30,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 Bonjour, je suis
-                <span className="gradient-text block">Marie Dubois</span>
+                <span className="gradient-text block">Mariène Kitana</span>
               </motion.h1>
               <motion.p 
                 className="text-xl text-neutral leading-relaxed mb-8"
@@ -38,8 +38,8 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Designer créative passionnée par l'art visuel et l'expérience utilisateur. 
-                Je transforme les idées en créations uniques et mémorables.
+                Reine de beauté, modèle et créatrice de contenu passionnée par l'art visuel et la mode. 
+                Je transforme chaque moment en œuvre d'art unique.
               </motion.p>
             </div>
             
@@ -77,8 +77,8 @@ export default function HeroSection() {
                   transition={{ duration: 0.3 }}
                 >
                   <img 
-                    src="https://images.unsplash.com/photo-1494790108755-2616b612b742?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=1000" 
-                    alt="Portrait professionnel" 
+                    src="/kitana/00.jpg" 
+                    alt="Portrait professionnel de Mariène Kitana" 
                     className="w-full h-full object-cover" 
                   />
                 </motion.div>

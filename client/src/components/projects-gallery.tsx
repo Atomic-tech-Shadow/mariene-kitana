@@ -17,9 +17,9 @@ export default function ProjectsGallery() {
 
   const categories = [
     { id: "all", label: "Tous les projets" },
-    { id: "design", label: "Design" },
-    { id: "web", label: "Web" },
-    { id: "branding", label: "Branding" },
+    { id: "photo", label: "Photography" },
+    { id: "mode", label: "Mode" },
+    { id: "beaute", label: "Beauté" },
   ];
 
   const filteredProjects = projects.filter(project => 
@@ -28,11 +28,11 @@ export default function ProjectsGallery() {
 
   const getCategoryColor = (category: string) => {
     switch (category) {
-      case "design":
+      case "photo":
         return "bg-accent/10 text-accent";
-      case "web":
+      case "mode":
         return "bg-green-100 text-green-600";
-      case "branding":
+      case "beaute":
         return "bg-primary/10 text-primary";
       default:
         return "bg-purple-100 text-purple-600";
@@ -41,14 +41,14 @@ export default function ProjectsGallery() {
 
   const getCategoryLabel = (category: string) => {
     switch (category) {
-      case "design":
-        return "Design Web";
-      case "web":
-        return "Application";
-      case "branding":
-        return "Branding";
+      case "photo":
+        return "Photography";
+      case "mode":
+        return "Mode";
+      case "beaute":
+        return "Beauté";
       default:
-        return "Print";
+        return "Création";
     }
   };
 
@@ -79,11 +79,11 @@ export default function ProjectsGallery() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div className="text-center mb-16" {...fadeInUp}>
           <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
-            Mes Projets
+            Ma Galerie
           </h2>
           <p className="text-xl text-neutral max-w-3xl mx-auto leading-relaxed">
-            Découvrez une sélection de mes créations les plus récentes, 
-            alliant créativité et fonctionnalité pour des expériences uniques.
+            Découvrez une sélection de mes shootings et créations les plus récentes, 
+            alliant beauté naturelle et art visuel pour des moments inoubliables.
           </p>
         </motion.div>
         
@@ -145,7 +145,7 @@ export default function ProjectsGallery() {
                         <motion.button
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.95 }}
-                          onClick={() => window.open(project.projectUrl, '_blank')}
+                          onClick={() => project.projectUrl && window.open(project.projectUrl, '_blank')}
                         >
                           <ExternalLink className="h-5 w-5 text-neutral hover:text-primary cursor-pointer transition-colors duration-200" />
                         </motion.button>

@@ -25,45 +25,59 @@ export class MemStorage implements IStorage {
   private initializeProjects() {
     const initialProjects: InsertProject[] = [
       {
-        title: "Interface E-commerce",
-        description: "Création d'une interface moderne et intuitive pour une boutique en ligne, optimisée pour l'expérience utilisateur.",
-        category: "design",
-        imageUrl: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
+        title: "Séance Photo Glamour",
+        description: "Collection de portraits artistiques mettant en valeur l'élégance naturelle et la beauté authentique.",
+        category: "photo",
+        imageUrl: "/kitana/01.jpg",
         projectUrl: "#"
       },
       {
-        title: "Identité Visuelle",
-        description: "Développement d'une identité de marque complète incluant logo, charte graphique et supports de communication.",
-        category: "branding",
-        imageUrl: "https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
+        title: "Shooting Mode Élégant",
+        description: "Série de photos mode showcasing différents styles et looks avec une approche sophistiquée.",
+        category: "mode",
+        imageUrl: "/kitana/02.jpg",
         projectUrl: "#"
       },
       {
-        title: "App Mobile",
-        description: "Conception d'une application mobile innovante avec une interface utilisateur fluide et engageante.",
-        category: "web",
-        imageUrl: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
+        title: "Portrait Artistique",
+        description: "Création artistique mêlant lumière naturelle et composition créative pour un rendu unique.",
+        category: "photo",
+        imageUrl: "/kitana/03.jpg",
         projectUrl: "#"
       },
       {
-        title: "Design Print",
-        description: "Collection de supports print élégants alliant esthétique moderne et fonctionnalité pratique.",
-        category: "design",
-        imageUrl: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
+        title: "Collection Beauté",
+        description: "Mise en valeur de la beauté naturelle à travers des portraits raffinés et intemporels.",
+        category: "beaute",
+        imageUrl: "/kitana/04.jpg",
         projectUrl: "#"
       },
       {
-        title: "Site Portfolio",
-        description: "Développement d'un site portfolio interactif mettant en valeur le travail d'un photographe professionnel.",
-        category: "web",
-        imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
+        title: "Style Moderne",
+        description: "Exploration de tendances mode contemporaines avec une touche personnelle et unique.",
+        category: "mode",
+        imageUrl: "/kitana/05.jpg",
         projectUrl: "#"
       },
       {
-        title: "Design Packaging",
-        description: "Création d'un packaging innovant qui reflète les valeurs de la marque tout en captivant l'attention du consommateur.",
-        category: "branding",
-        imageUrl: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
+        title: "Élégance Parisienne",
+        description: "Capture de l'esprit parisien à travers des poses naturelles et une esthétique raffinée.",
+        category: "photo",
+        imageUrl: "/kitana/06.jpg",
+        projectUrl: "#"
+      },
+      {
+        title: "Beauté Naturelle",
+        description: "Série mettant l'accent sur la beauté authentique et la grâce naturelle.",
+        category: "beaute",
+        imageUrl: "/kitana/07.jpg",
+        projectUrl: "#"
+      },
+      {
+        title: "Mode Contemporaine",
+        description: "Expression créative à travers la mode et les accessoires avec un style contemporain.",
+        category: "mode",
+        imageUrl: "/kitana/09.jpg",
         projectUrl: "#"
       }
     ];
@@ -89,6 +103,7 @@ export class MemStorage implements IStorage {
     const project: Project = {
       ...insertProject,
       id,
+      projectUrl: insertProject.projectUrl || null,
       createdAt: new Date()
     };
     this.projects.set(id, project);

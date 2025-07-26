@@ -5,9 +5,9 @@ import { portfolioData } from "@shared/schema";
 
 export default function AboutSection() {
   const skills = [
-    { name: "Design UI/UX", level: 95 },
-    { name: "Branding", level: 90 },
-    { name: "Développement Web", level: 85 },
+    { name: "Photographie", level: 98 },
+    { name: "Mode & Style", level: 95 },
+    { name: "Beauté & Makeup", level: 92 },
   ];
 
   return (
@@ -75,8 +75,8 @@ export default function AboutSection() {
           <motion.div {...slideUp}>
             <div className="relative">
               <motion.img 
-                src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-                alt="Espace de travail créatif" 
+                src="/kitana/10.jpg" 
+                alt="Portrait artistique de Mariène Kitana" 
                 className="rounded-2xl shadow-2xl w-full"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}

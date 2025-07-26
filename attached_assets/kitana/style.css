@@ -1,0 +1,896 @@
+/* Variables royales */
+:root {
+    --royal-purple: #8a4fff;
+    --gold: #ffd700;
+    --rose-gold: #e0bfb8;
+    --deep-pink: #ff1493;
+    --soft-pink: #ffb6c1;
+    --diamond-white: #f0f8ff;
+    --luxury-black: #1a1a1a;
+    --heart-red: #ff2d4d;
+}
+
+/* Reset et base royale */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #fff5f5 0%, #fff0f5 100%);
+    color: var(--luxury-black);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Overlay de luxe */
+.luxury-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="none" stroke="%23ffd70020" stroke-width="0.5" d="M0,0 L100,100 M100,0 L0,100"/></svg>');
+    opacity: 0.3;
+    z-index: -1;
+}
+
+/* Effets diamant */
+.diamond-sparkle {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><polygon fill="%23ffffff80" points="10,0 4,10 10,20 16,10"/></svg>') repeat;
+    background-size: 20px 20px;
+    animation: sparkle 10s linear infinite;
+    z-index: -2;
+    opacity: 0.1;
+}
+
+/* Effet de coeur pulsant */
+.heart-pulse {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200vw;
+    height: 200vh;
+    background: radial-gradient(circle, var(--heart-red) 0%, transparent 70%);
+    opacity: 0;
+    z-index: -3;
+    animation: pulse 8s ease-out infinite;
+}
+
+/* En-tête royal */
+.royal-header {
+    text-align: center;
+    padding: 2rem 1rem;
+    position: relative;
+}
+
+.crown-container {
+    margin-bottom: 1rem;
+}
+
+.crown {
+    display: inline-block;
+    width: 80px;
+    height: 50px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60"><path fill="%23ffd700" d="M10,10 L30,40 L50,20 L70,40 L90,10 L100,60 L0,60 Z"/></svg>') no-repeat center;
+    background-size: contain;
+}
+
+.royal-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--royal-purple);
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.subtitle {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: var(--deep-pink);
+}
+
+/* Lettre d'amour */
+.love-letter {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: linear-gradient(135deg, #fff9f9 0%, #fff0f5 100%);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(255, 20, 147, 0.2);
+    position: relative;
+    border: 1px solid var(--rose-gold);
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.love-letter:hover {
+    transform: rotateY(5deg) rotateX(2deg) translateY(-5px);
+}
+
+.letter-inner {
+    position: relative;
+    z-index: 2;
+}
+
+.love-letter h2 {
+    font-family: 'Dancing Script', cursive;
+    color: var(--deep-pink);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.love-letter p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    text-align: right;
+    margin-top: 2rem;
+    color: var(--heart-red);
+}
+
+.seal {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 60px;
+    height: 60px;
+    background: var(--heart-red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    font-size: 0.8rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transform: rotate(15deg);
+    border: 2px solid var(--gold);
+}
+
+.seal::after {
+    content: "Amour";
+    position: absolute;
+    color: white;
+}
+
+/* Boutons royaux */
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(transparent, rgba(255,255,255,0.3), transparent);
+    transform: rotate(30deg);
+    transition: all 0.5s ease;
+}
+
+.btn:hover::after {
+    left: 100%;
+}
+
+.royal-btn {
+    background: linear-gradient(45deg, var(--royal-purple), var(--deep-pink));
+    color: white;
+    box-shadow: 0 5px 15px rgba(138, 79, 255, 0.4);
+}
+
+.love-btn {
+    background: linear-gradient(45deg, var(--heart-red), var(--deep-pink));
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 45, 77, 0.4);
+}
+
+.btn-icon {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* Coeurs flottants */
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Effet premium */
+.premium-glow {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,215,0,0.05) 0%, transparent 70%);
+    animation: rotate-glow 20s linear infinite;
+    z-index: -2;
+}
+
+/* Pied de page royal */
+.royal-footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: var(--royal-purple);
+    position: relative;
+}
+
+.footer-heart {
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+}
+
+/* Animations */
+@keyframes sparkle {
+    0% { background-position: 0 0; }
+    100% { background-position: 20px 20px; }
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.05; }
+    50% { transform: translate(-50%, -50%) scale(1); opacity: 0.02; }
+    100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.05; }
+}
+
+@keyframes rotate-glow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .royal-header h1 {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .love-letter {
+        padding: 1.5rem;
+        margin: 1.5rem;
+    }
+    
+    .navigation-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 80%;
+        justify-content: center;
+    }
+}
+
+/* Styles pour la galerie et remerciements seront inclus dans les autres fichiers */
+/* Styles pour la galerie */
+.gallery-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-filter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.gallery-filter button {
+    padding: 0.5rem 1.5rem;
+    border: none;
+    background: var(--rose-gold);
+    color: var(--luxury-black);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.gallery-filter button.active {
+    background: linear-gradient(45deg, var(--royal-purple), var(--deep-pink));
+    color: white;
+    box-shadow: 0 3px 10px rgba(138, 79, 255, 0.3);
+}
+
+.gallery-filter button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(255, 20, 147, 0.3);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    padding: 1rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.gallery-caption {
+    font-size: 0.9rem;
+}
+
+.gallery-icon {
+    font-size: 1.5rem;
+}
+
+/* Diaporama */
+.gallery-slideshow {
+    position: relative;
+    max-width: 800px;
+    margin: 3rem auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+}
+
+.prev-slide, .next-slide {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.5);
+    border: none;
+    color: var(--luxury-black);
+    font-size: 1.5rem;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.prev-slide:hover, .next-slide:hover {
+    background: rgba(255,255,255,0.8);
+}
+
+.prev-slide {
+    left: 20px;
+}
+
+.next-slide {
+    right: 20px;
+}
+
+/* Styles pour les remerciements */
+.thanks-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.love-messages {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.message-card {
+    background: linear-gradient(135deg, #fff9f9 0%, #fff0f5 100%);
+    border-radius: 15px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(255, 20, 147, 0.1);
+    border: 1px solid var(--rose-gold);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.message-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--royal-purple), var(--deep-pink));
+}
+
+.message-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 20, 147, 0.2);
+}
+
+.message-content {
+    flex: 1;
+}
+
+.message-content h3 {
+    color: var(--royal-purple);
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.message-content p {
+    color: var(--luxury-black);
+    line-height: 1.6;
+}
+
+.message-heart {
+    font-size: 2rem;
+    margin-left: 1.5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.love-quotes {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.love-quotes h2 {
+    font-family: 'Dancing Script', cursive;
+    color: var(--deep-pink);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.quotes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.quote {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid var(--rose-gold);
+}
+
+.quote blockquote {
+    font-style: italic;
+    color: var(--luxury-black);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    position: relative;
+}
+
+.quote blockquote::before, .quote blockquote::after {
+    content: '"';
+    font-size: 2rem;
+    color: var(--rose-gold);
+    line-height: 0;
+}
+
+.quote blockquote::before {
+    vertical-align: bottom;
+    margin-right: 0.5rem;
+}
+
+.quote blockquote::after {
+    vertical-align: top;
+    margin-left: 0.5rem;
+}
+
+.quote cite {
+    display: block;
+    text-align: right;
+    color: var(--royal-purple);
+    font-style: normal;
+    font-weight: bold;
+}
+
+/* Animations supplémentaires */
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Effets pour la galerie lightbox */
+.lg-backdrop {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+.lg-outer .lg-thumb-outer {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.lg-actions .lg-next, .lg-actions .lg-prev {
+    background-color: rgba(255, 20, 147, 0.5) !important;
+}
+
+.lg-toolbar {
+    background-color: rgba(0, 0, 0, 0.45) !important;
+}
+
+
+/* ---------------------------- */
+/* EFFETS BONUS SUPPLÉMENTAIRES */
+/* ---------------------------- */
+
+/* 1. Effet de pluie de pétales de rose */
+.rose-petals {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff6b8b"><path d="M12 2C13.1 2 14 2.9 14 4s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm6 7c-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4 1.2-1.2 1.1-3.1-.1-4.3-1.2-1.2-3.1-1.3-4.3-.1-.4.4-1 .4-1.4 0-.4-.4-.4-1 0-1.4 2.1-2.1 5.5-2.1 7.6 0 2.1 2.1 2.1 5.5 0 7.6-.2.2-.4.3-.7.3zm-9.3 1.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4 1.2 1.2 1.1 3.1-.1 4.3-1.2 1.2-3.1 1.3-4.3.1-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4 2.1 2.1 5.5 2.1 7.6 0 2.1-2.1 2.1-5.5 0-7.6-.2-.2-.4-.3-.7-.3-.3 0-.5.1-.7.3z"/></svg>');
+    animation: falling-petals 20s linear infinite;
+    opacity: 0.3;
+}
+
+/* 2. Effet de lumière dorée qui suit la souris */
+.gold-light {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255,215,0,0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* 3. Effet de texte flottant romantique */
+.floating-text {
+    position: fixed;
+    font-family: 'Dancing Script', cursive;
+    color: var(--deep-love);
+    font-size: 1.2rem;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+    animation: float-up 4s ease-out forwards;
+}
+
+/* 4. Bouton spécial "Surprise" */
+.surprise-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: linear-gradient(45deg, var(--deep-love), var(--fabibi-purple));
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 45, 77, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.surprise-btn:hover {
+    transform: scale(1.1) rotate(30deg);
+    box-shadow: 0 8px 20px rgba(255, 45, 77, 0.6);
+}
+
+/* 5. Effet de flash romantique */
+.romantic-flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* 6. Coeur battant géant */
+.heart-beat {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10rem;
+    color: var(--heart-red);
+    opacity: 0;
+    z-index: 90;
+    pointer-events: none;
+    animation: heart-beat-anim 1s ease-out;
+}
+
+/* 7. Effet de fond étoilé */
+.starry-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: -3;
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite alternate;
+}
+
+/* Animations bonus */
+@keyframes falling-petals {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100vh; }
+}
+
+@keyframes float-up {
+    0% { transform: translateY(0); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translateY(-100px); opacity: 0; }
+}
+
+@keyframes heart-beat-anim {
+    0% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.2; }
+    100% { opacity: 1; }
+}
+
+/* 8. Effet de message secret */
+.secret-message {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    font-family: 'Dancing Script', cursive;
+    color: var(--deep-love);
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1000;
+    text-align: center;
+    max-width: 80%;
+}
+
+/* 9. Effet de baiser volant */
+.flying-kiss {
+    position: fixed;
+    font-size: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+    animation: fly-kiss 3s ease-out forwards;
+}
+
+/* 10. Effet de feu d'artifice */
+.firework {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 5px;
+    opacity: 0;
+    z-index: 99;
+}
+
+/* Animation pour le baiser volant */
+@keyframes fly-kiss {
+    0% { transform: translate(0, 0) scale(0.5); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translate(var(--end-x), var(--end-y)) scale(1.5); opacity: 0; }
+}
+
+/* 11. Effet de vibration romantique */
+.romantic-vibration {
+    animation: vibrate-romantic 0.3s linear infinite;
+}
+
+@keyframes vibrate-romantic {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(0); }
+}
+
+/* 12. Effet de transition entre pages */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--fabibi-purple), var(--deep-love));
+    z-index: 9999;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.6s ease-in-out;
+}
+
+/* 13. Effet de reflet dans l'eau pour les images */
+.water-reflection {
+    position: relative;
+    overflow: hidden;
+}
+
+.water-reflection::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.3));
+    transform: scaleY(-1);
+    opacity: 0.5;
+}
+
+/* 14. Effet de sélection romantique */
+::selection {
+    background: var(--deep-love);
+    color: white;
+}
+
+/* 15. Effet de chargement personnalisé */
+.loading-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;
+}
+
+.loading-hearts .hearts-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.loading-hearts .heart {
+    font-size: 2rem;
+    color: var(--deep-love);
+    animation: loading-heart 1.5s infinite ease-in-out;
+}
+
+.loading-hearts .heart:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loading-hearts .heart:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.loading-hearts p {
+    margin-top: 2rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: var(--fabibi-purple);
+}
+
+@keyframes loading-heart {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.3); }
+}

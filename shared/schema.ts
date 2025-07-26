@@ -42,19 +42,19 @@ export type Contact = typeof contacts.$inferSelect;
 // User data schema for portfolio content
 export const portfolioData = {
   user: {
-    name: "Marie Dubois",
-    title: "Designer créative passionnée par l'art visuel et l'expérience utilisateur. Je transforme les idées en créations uniques et mémorables.",
-    bio1: "Passionnée par le design depuis mon plus jeune âge, j'ai développé une expertise unique dans la création d'expériences visuelles mémorables et fonctionnelles.",
-    bio2: "Mon approche allie créativité artistique et rigueur technique pour donner vie à des projets qui marquent et inspirent. Chaque création est pensée pour raconter une histoire unique.",
-    bio3: "Aujourd'hui, je collabore avec des clients visionnaires pour transformer leurs idées en réalités visuelles impactantes, toujours en quête d'innovation et d'excellence."
+    name: "Mariène Kitana",
+    title: "Reine de beauté, modèle et créatrice de contenu passionnée par l'art visuel et la mode. Je transforme chaque moment en œuvre d'art unique.",
+    bio1: "Passionnée par la beauté et l'art depuis mon plus jeune âge, j'ai développé une expertise unique dans la création de contenus visuels mémorables et inspirants.",
+    bio2: "Mon approche allie élégance naturelle et créativité artistique pour donner vie à des projets qui marquent et captivent. Chaque création est pensée pour raconter une histoire de beauté authentique.",
+    bio3: "Aujourd'hui, je partage ma passion pour l'art visuel et la mode à travers mes créations, toujours en quête de perfection et d'authenticité."
   },
   contact: {
-    email: "marie.dubois@email.com",
+    email: "mariene.kitana@email.com",
     phone: "+33 6 12 34 56 78",
     location: "Paris, France"
   },
   stats: {
-    projects: "50+",
-    clients: "30+"
+    projects: "100+",
+    clients: "50+"
   }
 };
