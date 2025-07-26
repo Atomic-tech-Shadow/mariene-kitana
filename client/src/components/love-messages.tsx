@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { Share2, Copy, Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { fadeInUp, slideUp } from "@/lib/animations";
+import { useState } from "react";
 
 const loveMessages = [
   {
@@ -65,6 +68,32 @@ const loveQuotes = [
 ];
 
 export default function LoveMessages() {
+  const [copiedMessage, setCopiedMessage] = useState<string | null>(null);
+
+  const shareMessage = async (message: string, title: string) => {
+    const text = `${title}: ${message} 💕`;
+    
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: `Message d'amour pour Mariène`,
+          text: text,
+        });
+      } catch (err) {
+        copyToClipboard(text);
+      }
+    } else {
+      copyToClipboard(text);
+    }
+  };
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedMessage(text);
+      setTimeout(() => setCopiedMessage(null), 2000);
+    });
+  };
+
   return (
     <section id="messages" className="py-20 bg-gradient-to-br from-pink-50 via-rose-50 to-red-50 relative overflow-hidden">
       {/* Floating hearts background */}
@@ -90,24 +119,84 @@ export default function LoveMessages() {
           {loveMessages.map((msg, index) => (
             <motion.div
               key={msg.title}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ 
+                duration: 0.8, 
+                delay: index * 0.2,
+                type: "spring",
+                bounce: 0.4
+              }}
+              whileHover={{ 
+                scale: 1.05,
+                rotate: index % 2 === 0 ? 1 : -1,
+                transition: { duration: 0.3 }
+              }}
             >
-              <Card className="bg-white/90 backdrop-blur-sm border-2 border-pink-200 shadow-lg hover:shadow-xl transition-all duration-300 romantic-glow">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="text-4xl animate-pulse">
+              <Card className="bg-white/90 backdrop-blur-sm border-2 border-pink-200 shadow-lg hover:shadow-2xl transition-all duration-500 romantic-glow overflow-hidden group">
+                <CardContent className="p-6 relative">
+                  {/* Animated background gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-pink-50 via-rose-50 to-red-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  <div className="flex items-start space-x-4 relative z-10">
+                    <motion.div 
+                      className="text-4xl"
+                      animate={{ 
+                        scale: [1, 1.2, 1],
+                        rotate: [0, 5, -5, 0]
+                      }}
+                      transition={{ 
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: index * 0.3
+                      }}
+                    >
                       {msg.heart}
-                    </div>
+                    </motion.div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-primary mb-3">
+                      <motion.h3 
+                        className="text-xl font-bold text-primary mb-3"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: index * 0.2 + 0.3 }}
+                      >
                         {msg.title}
-                      </h3>
-                      <p className="text-pink-700 leading-relaxed">
+                      </motion.h3>
+                      <motion.p 
+                        className="text-pink-700 leading-relaxed"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: index * 0.2 + 0.5 }}
+                      >
                         {msg.message}
-                      </p>
+                      </motion.p>
                     </div>
+                  </div>
+
+                  {/* Share button */}
+                  <motion.div 
+                    className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: index * 0.2 + 0.8 }}
+                  >
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => shareMessage(msg.message, msg.title)}
+                      className="text-pink-500 hover:text-pink-700 hover:bg-pink-50 rounded-full p-2"
+                    >
+                      {copiedMessage === `${msg.title}: ${msg.message} 💕` ? 
+                        <Check className="w-4 h-4" /> : 
+                        <Share2 className="w-4 h-4" />
+                      }
+                    </Button>
+                  </motion.div>
+
+                  {/* Floating sparkles on hover */}
+                  <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="romantic-sparkle absolute top-2 right-4"></div>
+                    <div className="romantic-sparkle absolute bottom-4 left-6"></div>
                   </div>
                 </CardContent>
               </Card>
@@ -126,10 +215,20 @@ export default function LoveMessages() {
           {loveQuotes.map((quote, index) => (
             <motion.div
               key={index}
-              className="bg-white/80 backdrop-blur-sm rounded-lg p-6 border-2 border-rose-200 shadow-lg"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-white/80 backdrop-blur-sm rounded-lg p-6 border-2 border-rose-200 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              initial={{ opacity: 0, scale: 0.8, rotateX: 45 }}
+              animate={{ opacity: 1, scale: 1, rotateX: 0 }}
+              transition={{ 
+                duration: 0.8, 
+                delay: index * 0.2 + 1,
+                type: "spring",
+                bounce: 0.3
+              }}
+              whileHover={{
+                scale: 1.03,
+                rotate: index % 2 === 0 ? 0.5 : -0.5,
+                transition: { duration: 0.3 }
+              }}
             >
               <blockquote className="text-lg text-pink-800 italic leading-relaxed mb-4">
                 "{quote.quote}"

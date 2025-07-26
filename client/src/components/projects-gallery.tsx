@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, X, ChevronLeft, ChevronRight, ZoomIn, Play, Pause } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -10,6 +10,10 @@ import type { Project } from "@shared/schema";
 
 export default function ProjectsGallery() {
   const [activeFilter, setActiveFilter] = useState("all");
+  const [selectedImage, setSelectedImage] = useState<Project | null>(null);
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [isSlideshow, setIsSlideshow] = useState(false);
+  const [slideshowInterval, setSlideshowInterval] = useState<NodeJS.Timeout | null>(null);
 
   const { data: projects = [], isLoading } = useQuery<Project[]>({
     queryKey: ["/api/projects"],
@@ -25,6 +29,75 @@ export default function ProjectsGallery() {
   const filteredProjects = projects.filter(project => 
     activeFilter === "all" || project.category === activeFilter
   );
+
+  // Slideshow functionality
+  useEffect(() => {
+    if (isSlideshow && filteredProjects.length > 0) {
+      const interval = setInterval(() => {
+        setCurrentSlideIndex((prev) => (prev + 1) % filteredProjects.length);
+        if (selectedImage) {
+          setSelectedImage(filteredProjects[(currentSlideIndex + 1) % filteredProjects.length]);
+        }
+      }, 3000);
+      setSlideshowInterval(interval);
+      return () => clearInterval(interval);
+    } else if (slideshowInterval) {
+      clearInterval(slideshowInterval);
+      setSlideshowInterval(null);
+    }
+  }, [isSlideshow, filteredProjects.length, currentSlideIndex, selectedImage]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (!selectedImage) return;
+
+    const handleKeyPress = (e: KeyboardEvent) => {
+      switch (e.key) {
+        case 'ArrowLeft':
+          prevImage();
+          break;
+        case 'ArrowRight':
+          nextImage();
+          break;
+        case 'Escape':
+          closeFullscreen();
+          break;
+        case ' ':
+          e.preventDefault();
+          toggleSlideshow();
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [selectedImage, filteredProjects, currentSlideIndex]);
+
+  const openFullscreen = (project: Project) => {
+    setSelectedImage(project);
+    const index = filteredProjects.findIndex(p => p.id === project.id);
+    setCurrentSlideIndex(index);
+  };
+
+  const closeFullscreen = () => {
+    setSelectedImage(null);
+    setIsSlideshow(false);
+  };
+
+  const nextImage = () => {
+    setCurrentSlideIndex((prev) => (prev + 1) % filteredProjects.length);
+    setSelectedImage(filteredProjects[(currentSlideIndex + 1) % filteredProjects.length]);
+  };
+
+  const prevImage = () => {
+    const newIndex = currentSlideIndex === 0 ? filteredProjects.length - 1 : currentSlideIndex - 1;
+    setCurrentSlideIndex(newIndex);
+    setSelectedImage(filteredProjects[newIndex]);
+  };
+
+  const toggleSlideshow = () => {
+    setIsSlideshow(!isSlideshow);
+  };
 
   const getCategoryColor = (category: string) => {
     switch (category) {
@@ -135,15 +208,22 @@ export default function ProjectsGallery() {
                 {...scaleOnHover}
               >
                 <Card className="overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border-2 border-pink-100 hover:border-pink-300 romantic-glow">
-                  <div className="aspect-[4/3] overflow-hidden relative">
+                  <div 
+                    className="aspect-[4/3] overflow-hidden relative cursor-pointer group"
+                    onClick={() => openFullscreen(project)}
+                  >
                     <img 
                       src={project.imageUrl} 
                       alt={project.title}
                       className="w-full h-full object-cover transform transition-transform duration-300 hover:scale-110" 
                     />
-                    {/* Love overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-pink-900/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-                      <span className="text-white font-semibold text-lg">💕 Magnifique 💕</span>
+                    {/* Zoom overlay on hover */}
+                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <ZoomIn className="text-white w-12 h-12 animate-pulse" />
+                    </div>
+                    {/* Love overlay at bottom */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-pink-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                      <span className="text-white font-semibold text-lg">💕 Cliquer pour agrandir 💕</span>
                     </div>
                   </div>
                   <CardContent className="p-6 bg-gradient-to-br from-white to-pink-50">
@@ -165,7 +245,103 @@ export default function ProjectsGallery() {
             ))}
           </AnimatePresence>
         </motion.div>
+
+        {/* Slideshow Controls */}
+        {filteredProjects.length > 1 && (
+          <motion.div 
+            className="flex justify-center mt-12 gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <Button
+              onClick={toggleSlideshow}
+              className="bg-gradient-to-r from-pink-500 to-rose-500 text-white hover:from-pink-600 hover:to-rose-600 romantic-glow px-6 py-3 rounded-full"
+            >
+              {isSlideshow ? <Pause className="w-5 h-5 mr-2" /> : <Play className="w-5 h-5 mr-2" />}
+              {isSlideshow ? 'Arrêter le Slideshow' : 'Démarrer le Slideshow'}
+            </Button>
+          </motion.div>
+        )}
       </div>
+
+      {/* Fullscreen Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+            onClick={closeFullscreen}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="relative max-w-4xl max-h-[90vh] w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close button */}
+              <Button
+                onClick={closeFullscreen}
+                className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white rounded-full p-2"
+                size="sm"
+              >
+                <X className="w-6 h-6" />
+              </Button>
+
+              {/* Navigation buttons */}
+              {filteredProjects.length > 1 && (
+                <>
+                  <Button
+                    onClick={prevImage}
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white rounded-full p-3"
+                  >
+                    <ChevronLeft className="w-8 h-8" />
+                  </Button>
+                  <Button
+                    onClick={nextImage}
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white rounded-full p-3"
+                  >
+                    <ChevronRight className="w-8 h-8" />
+                  </Button>
+                </>
+              )}
+
+              {/* Slideshow control */}
+              <Button
+                onClick={toggleSlideshow}
+                className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10 bg-black/50 hover:bg-black/70 text-white rounded-full px-4 py-2"
+              >
+                {isSlideshow ? <Pause className="w-4 h-4 mr-2" /> : <Play className="w-4 h-4 mr-2" />}
+                {isSlideshow ? 'Pause' : 'Play'}
+              </Button>
+
+              {/* Image */}
+              <img
+                src={selectedImage.imageUrl}
+                alt={selectedImage.title}
+                className="w-full h-full object-contain rounded-lg"
+              />
+
+              {/* Image info */}
+              <div className="absolute bottom-4 left-4 right-4 bg-black/70 text-white p-4 rounded-lg">
+                <h3 className="text-xl font-bold mb-2">{selectedImage.title}</h3>
+                <p className="text-gray-200">{selectedImage.description}</p>
+                <div className="flex justify-between items-center mt-2">
+                  <Badge className="bg-pink-500 text-white">
+                    {getCategoryLabel(selectedImage.category)}
+                  </Badge>
+                  <span className="text-sm text-gray-300">
+                    {currentSlideIndex + 1} / {filteredProjects.length}
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

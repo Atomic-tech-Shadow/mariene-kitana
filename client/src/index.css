@@ -243,6 +243,26 @@
   animation: sparkle-dance 4s ease-in-out infinite;
 }
 
+.animate-love-glow {
+  animation: love-glow 3s ease-in-out infinite;
+}
+
+.animate-rainbow-pulse {
+  animation: rainbow-pulse 4s linear infinite;
+}
+
+.animate-butterfly-float {
+  animation: butterfly-float 6s ease-in-out infinite;
+}
+
+.animate-magical-entrance {
+  animation: magical-entrance 1s ease-out forwards;
+}
+
+.animate-text-dance {
+  animation: text-dance 3s ease-in-out infinite;
+}
+
 .animate-rainbow-pulse {
   animation: rainbow-pulse 3s linear infinite;
 }

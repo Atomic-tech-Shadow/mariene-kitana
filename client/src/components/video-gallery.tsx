@@ -51,17 +51,31 @@ export default function VideoGallery() {
           {videos.map((video, index) => (
             <motion.div
               key={video.title}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              initial={{ opacity: 0, y: 50, rotateY: 45 }}
+              animate={{ opacity: 1, y: 0, rotateY: 0 }}
+              transition={{ 
+                duration: 0.8, 
+                delay: index * 0.3,
+                type: "spring",
+                bounce: 0.3
+              }}
+              whileHover={{ 
+                y: -10,
+                scale: 1.02,
+                transition: { duration: 0.3 }
+              }}
             >
               <Card className="bg-white/90 backdrop-blur-sm border-2 border-pink-200 shadow-lg hover:shadow-2xl transition-all duration-300 group overflow-hidden romantic-glow">
                 <div className="relative">
                   <video 
-                    className="w-full h-64 object-cover"
+                    className="w-full h-64 object-cover rounded-t-lg"
                     poster={video.thumbnail}
                     controls
                     preload="metadata"
+                    controlsList="nodownload"
+                    style={{
+                      filter: 'brightness(1.1) contrast(1.1) saturate(1.2)'
+                    }}
                   >
                     <source src={video.videoUrl} type="video/mp4" />
                     Votre navigateur ne supporte pas la lecture vidéo.
