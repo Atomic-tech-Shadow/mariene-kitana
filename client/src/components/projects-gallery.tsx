@@ -16,10 +16,10 @@ export default function ProjectsGallery() {
   });
 
   const categories = [
-    { id: "all", label: "Tous les projets" },
-    { id: "photo", label: "Photography" },
-    { id: "mode", label: "Mode" },
-    { id: "beaute", label: "Beauté" },
+    { id: "all", label: "💕 Toutes tes photos" },
+    { id: "photo", label: "📸 Portraits" },
+    { id: "mode", label: "👗 Mode" },
+    { id: "beaute", label: "💄 Beauté" },
   ];
 
   const filteredProjects = projects.filter(project => 
@@ -75,15 +75,21 @@ export default function ProjectsGallery() {
   }
 
   return (
-    <section id="projets" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="projets" className="py-20 bg-gradient-to-br from-rose-50 to-pink-100 relative">
+      {/* Floating hearts */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="floating-hearts absolute top-20 left-16"></div>
+        <div className="floating-hearts absolute bottom-32 right-20"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div className="text-center mb-16" {...fadeInUp}>
           <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
-            Ma Galerie
+            💖 Galerie de Ma Princesse 💖
           </h2>
-          <p className="text-xl text-neutral max-w-3xl mx-auto leading-relaxed">
-            Découvrez une sélection de mes shootings et créations les plus récentes, 
-            alliant beauté naturelle et art visuel pour des moments inoubliables.
+          <p className="text-xl text-pink-700 max-w-3xl mx-auto leading-relaxed font-medium">
+            Chaque photo de toi est un trésor qui capture ta beauté extraordinaire. 
+            Tu es la plus belle chose qui me soit jamais arrivée. ❤️✨
           </p>
         </motion.div>
         
@@ -101,8 +107,8 @@ export default function ProjectsGallery() {
               variant={activeFilter === category.id ? "default" : "outline"}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-200 ${
                 activeFilter === category.id
-                  ? "bg-primary text-white hover:bg-primary/90"
-                  : "bg-gray-100 text-neutral hover:bg-gray-200"
+                  ? "bg-gradient-to-r from-pink-500 to-rose-500 text-white hover:from-pink-600 hover:to-rose-600 romantic-glow"
+                  : "bg-pink-50 text-pink-600 border-pink-200 hover:bg-pink-100"
               }`}
             >
               {category.label}
@@ -128,33 +134,29 @@ export default function ProjectsGallery() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 {...scaleOnHover}
               >
-                <Card className="overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                  <div className="aspect-[4/3] overflow-hidden">
+                <Card className="overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border-2 border-pink-100 hover:border-pink-300 romantic-glow">
+                  <div className="aspect-[4/3] overflow-hidden relative">
                     <img 
                       src={project.imageUrl} 
                       alt={project.title}
                       className="w-full h-full object-cover transform transition-transform duration-300 hover:scale-110" 
                     />
+                    {/* Love overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-pink-900/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                      <span className="text-white font-semibold text-lg">💕 Magnifique 💕</span>
+                    </div>
                   </div>
-                  <CardContent className="p-6">
+                  <CardContent className="p-6 bg-gradient-to-br from-white to-pink-50">
                     <div className="flex items-center justify-between mb-3">
-                      <Badge className={getCategoryColor(project.category)}>
+                      <Badge className={`${getCategoryColor(project.category)} px-3 py-1 rounded-full font-medium`}>
                         {getCategoryLabel(project.category)}
                       </Badge>
-                      {project.projectUrl && (
-                        <motion.button
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                          onClick={() => project.projectUrl && window.open(project.projectUrl, '_blank')}
-                        >
-                          <ExternalLink className="h-5 w-5 text-neutral hover:text-primary cursor-pointer transition-colors duration-200" />
-                        </motion.button>
-                      )}
+                      <div className="text-pink-400 text-xl">💖</div>
                     </div>
-                    <h3 className="text-xl font-semibold text-primary mb-2">
+                    <h3 className="text-xl font-semibold text-pink-800 mb-2">
                       {project.title}
                     </h3>
-                    <p className="text-neutral leading-relaxed">
+                    <p className="text-pink-600 leading-relaxed">
                       {project.description}
                     </p>
                   </CardContent>

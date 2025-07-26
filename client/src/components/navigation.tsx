@@ -25,10 +25,10 @@ export default function Navigation() {
   };
 
   const navItems = [
-    { label: "Accueil", id: "accueil" },
-    { label: "Projets", id: "projets" },
-    { label: "À propos", id: "apropos" },
-    { label: "Contact", id: "contact" },
+    { label: "💕 Mon Amour", id: "accueil" },
+    { label: "📸 Sa Beauté", id: "projets" },
+    { label: "💖 Mon Cœur", id: "apropos" },
+    { label: "💌 Lui Écrire", id: "contact" },
   ];
 
   return (
@@ -47,7 +47,7 @@ export default function Navigation() {
             className="font-bold text-xl text-primary"
             whileHover={{ scale: 1.05 }}
           >
-            Portfolio
+            💖 Mariène Kitana 💖
           </motion.div>
 
           {/* Desktop Navigation */}

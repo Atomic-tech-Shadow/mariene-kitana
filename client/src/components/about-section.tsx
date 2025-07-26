@@ -5,20 +5,27 @@ import { portfolioData } from "@shared/schema";
 
 export default function AboutSection() {
   const skills = [
-    { name: "Photographie", level: 98 },
-    { name: "Mode & Style", level: 95 },
-    { name: "Beauté & Makeup", level: 92 },
+    { name: "💖 Beauté Naturelle", level: 100 },
+    { name: "✨ Élégance", level: 100 },
+    { name: "🌹 Charme Irrésistible", level: 100 },
   ];
 
   return (
-    <section id="apropos" className="py-20 bg-gradient-to-br from-secondary to-purple-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="apropos" className="py-20 bg-gradient-to-br from-pink-50 to-rose-100 relative overflow-hidden">
+      {/* Floating hearts */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="floating-hearts absolute top-16 right-10"></div>
+        <div className="floating-hearts absolute bottom-20 left-12"></div>
+        <div className="floating-hearts absolute top-40 left-1/3"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div {...fadeInUp}>
             <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-8">
-              À propos de moi
+              💕 Tout sur ma Princesse 💕
             </h2>
-            <div className="space-y-6 text-lg text-neutral leading-relaxed">
+            <div className="space-y-6 text-lg text-pink-700 leading-relaxed font-medium">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -49,7 +56,7 @@ export default function AboutSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <h3 className="text-2xl font-semibold text-primary mb-6">Mes Compétences</h3>
+              <h3 className="text-2xl font-semibold text-primary mb-6">💕 Ses Qualités Extraordinaires 💕</h3>
               <div className="space-y-6">
                 {skills.map((skill, index) => (
                   <motion.div 
@@ -75,7 +82,7 @@ export default function AboutSection() {
           <motion.div {...slideUp}>
             <div className="relative">
               <motion.img 
-                src="/kitana/10.jpg" 
+                src="/10.jpg" 
                 alt="Portrait artistique de Mariène Kitana" 
                 className="rounded-2xl shadow-2xl w-full"
                 whileHover={{ scale: 1.02 }}

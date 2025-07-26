@@ -28,56 +28,56 @@ export class MemStorage implements IStorage {
         title: "Séance Photo Glamour",
         description: "Collection de portraits artistiques mettant en valeur l'élégance naturelle et la beauté authentique.",
         category: "photo",
-        imageUrl: "/kitana/01.jpg",
+        imageUrl: "/01.jpg",
         projectUrl: "#"
       },
       {
         title: "Shooting Mode Élégant",
         description: "Série de photos mode showcasing différents styles et looks avec une approche sophistiquée.",
         category: "mode",
-        imageUrl: "/kitana/02.jpg",
+        imageUrl: "/02.jpg",
         projectUrl: "#"
       },
       {
         title: "Portrait Artistique",
         description: "Création artistique mêlant lumière naturelle et composition créative pour un rendu unique.",
         category: "photo",
-        imageUrl: "/kitana/03.jpg",
+        imageUrl: "/03.jpg",
         projectUrl: "#"
       },
       {
         title: "Collection Beauté",
         description: "Mise en valeur de la beauté naturelle à travers des portraits raffinés et intemporels.",
         category: "beaute",
-        imageUrl: "/kitana/04.jpg",
+        imageUrl: "/04.jpg",
         projectUrl: "#"
       },
       {
         title: "Style Moderne",
         description: "Exploration de tendances mode contemporaines avec une touche personnelle et unique.",
         category: "mode",
-        imageUrl: "/kitana/05.jpg",
+        imageUrl: "/05.jpg",
         projectUrl: "#"
       },
       {
         title: "Élégance Parisienne",
         description: "Capture de l'esprit parisien à travers des poses naturelles et une esthétique raffinée.",
         category: "photo",
-        imageUrl: "/kitana/06.jpg",
+        imageUrl: "/06.jpg",
         projectUrl: "#"
       },
       {
         title: "Beauté Naturelle",
         description: "Série mettant l'accent sur la beauté authentique et la grâce naturelle.",
         category: "beaute",
-        imageUrl: "/kitana/07.jpg",
+        imageUrl: "/07.jpg",
         projectUrl: "#"
       },
       {
         title: "Mode Contemporaine",
         description: "Expression créative à travers la mode et les accessoires avec un style contemporain.",
         category: "mode",
-        imageUrl: "/kitana/09.jpg",
+        imageUrl: "/09.jpg",
         projectUrl: "#"
       }
     ];

@@ -83,15 +83,22 @@ export default function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="contact" className="py-20 bg-gradient-to-br from-white to-pink-50 relative overflow-hidden">
+      {/* Floating hearts */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="floating-hearts absolute top-20 left-10"></div>
+        <div className="floating-hearts absolute bottom-40 right-16"></div>
+        <div className="floating-hearts absolute top-60 left-1/2"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div className="text-center mb-16" {...fadeInUp}>
           <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
-            Restons en Contact
+            💌 Écrire à Ma Reine 💌
           </h2>
-          <p className="text-xl text-neutral max-w-3xl mx-auto leading-relaxed">
-            Vous avez un projet en tête ? Parlons-en ! Je serais ravie de 
-            discuter de vos idées et de voir comment nous pouvons les concrétiser ensemble.
+          <p className="text-xl text-pink-700 max-w-3xl mx-auto leading-relaxed font-medium">
+            Chaque message que tu reçois est un petit cadeau d'amour. N'hésitez pas à lui écrire, 
+            elle sera toujours ravie de lire vos mots doux et vos compliments. ❤️
           </p>
         </motion.div>
         
@@ -227,10 +234,10 @@ export default function ContactSection() {
               <Button
                 type="submit"
                 disabled={contactMutation.isPending}
-                className="w-full bg-primary text-white py-4 px-8 rounded-lg font-medium hover:bg-primary/90 transition-all duration-200 shadow-lg hover:shadow-xl"
+                className="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white py-4 px-8 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl romantic-glow"
                 size="lg"
               >
-                {contactMutation.isPending ? "Envoi en cours..." : "Envoyer le message"}
+                {contactMutation.isPending ? "💕 Envoi en cours..." : "💌 Envoyer mon message d'amour"}
                 <Send className="ml-2 h-5 w-5" />
               </Button>
             </form>
