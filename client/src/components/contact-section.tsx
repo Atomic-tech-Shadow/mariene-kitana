@@ -64,10 +64,10 @@ export default function ContactSection() {
     },
     {
       icon: Phone,
-      title: "Téléphone",
+      title: "Téléphone/WhatsApp",
       value: portfolioData.contact.phone,
-      href: `tel:${portfolioData.contact.phone}`,
-      display: "Appeler Mariène"
+      href: portfolioData.contact.whatsapp,
+      display: "Contacter sur WhatsApp"
     },
     {
       icon: MapPin,
@@ -126,9 +126,9 @@ export default function ContactSection() {
                         className="text-neutral hover:text-primary transition-colors duration-200 font-medium"
                       >
                         {info.value}
-                        {info.title === "Téléphone" && (
+                        {info.title === "Téléphone/WhatsApp" && (
                           <span className="block text-sm text-pink-600 mt-1">
-                            📞 Appeler ma reine d'amour
+                            💬 Écrire à ma reine sur WhatsApp
                           </span>
                         )}
                       </a>

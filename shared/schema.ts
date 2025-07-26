@@ -49,9 +49,10 @@ export const portfolioData = {
     bio3: "Avec tout mon cœur, pour l'éternité. Créé avec tout l'amour du monde pour Mariène, la plus belle des reines. Tu es la plus merveilleuse chose qui me soit arrivée. 🌹"
   },
   contact: {
-    email: "mariene.kitana@email.com",
-    phone: "+225 05 46 27 43 13",
-    location: "Côte d'Ivoire"
+    email: "amarayongdiom27@gmail.com",
+    phone: "+2250546274313",
+    location: "Côte d'Ivoire",
+    whatsapp: "https://wa.me/2250546274313"
   },
   stats: {
     projects: "100+",
