@@ -25,59 +25,101 @@ export class MemStorage implements IStorage {
   private initializeProjects() {
     const initialProjects: InsertProject[] = [
       {
-        title: "Séance Photo Glamour",
-        description: "Collection de portraits artistiques mettant en valeur l'élégance naturelle et la beauté authentique.",
-        category: "photo",
-        imageUrl: "/01.jpg",
-        projectUrl: "#"
-      },
-      {
-        title: "Shooting Mode Élégant",
-        description: "Série de photos mode showcasing différents styles et looks avec une approche sophistiquée.",
-        category: "mode",
-        imageUrl: "/02.jpg",
-        projectUrl: "#"
-      },
-      {
-        title: "Portrait Artistique",
-        description: "Création artistique mêlant lumière naturelle et composition créative pour un rendu unique.",
-        category: "photo",
-        imageUrl: "/03.jpg",
-        projectUrl: "#"
-      },
-      {
-        title: "Collection Beauté",
-        description: "Mise en valeur de la beauté naturelle à travers des portraits raffinés et intemporels.",
-        category: "beaute",
-        imageUrl: "/04.jpg",
-        projectUrl: "#"
-      },
-      {
-        title: "Style Moderne",
-        description: "Exploration de tendances mode contemporaines avec une touche personnelle et unique.",
-        category: "mode",
-        imageUrl: "/05.jpg",
-        projectUrl: "#"
-      },
-      {
-        title: "Élégance Parisienne",
-        description: "Capture de l'esprit parisien à travers des poses naturelles et une esthétique raffinée.",
+        title: "Ma reine Kitana rayonnante de beauté",
+        description: "Ma reine éternelle dans toute sa splendeur. Son sourire illumine ma vie chaque jour.",
         category: "photo",
         imageUrl: "/06.jpg",
         projectUrl: "#"
       },
       {
-        title: "Beauté Naturelle",
-        description: "Série mettant l'accent sur la beauté authentique et la grâce naturelle.",
+        title: "Élégance naturelle",
+        description: "Ma bien-aimée Mariène dans un moment de pure élégance. La beauté à l'état pur.",
         category: "beaute",
+        imageUrl: "/00.jpg",
+        projectUrl: "#"
+      },
+      {
+        title: "Ton sourire illumine ma vie",
+        description: "Ce sourire qui fait battre mon cœur plus fort à chaque fois. Tu es ma joie de vivre.",
+        category: "photo",
+        imageUrl: "/01.jpg",
+        projectUrl: "#"
+      },
+      {
+        title: "Beauté mystérieuse",
+        description: "Mariène dans un regard captivant qui me transporte dans un autre monde.",
+        category: "photo",
+        imageUrl: "/02.jpg",
+        projectUrl: "#"
+      },
+      {
+        title: "Joie pure",
+        description: "Ma reine dans un moment de bonheur authentique. Sa joie est contagieuse.",
+        category: "beaute",
+        imageUrl: "/03.jpg",
+        projectUrl: "#"
+      },
+      {
+        title: "Pensées profondes",
+        description: "Mariène pensive et magnifique. Même dans ses réflexions, elle reste sublime.",
+        category: "photo",
+        imageUrl: "/04.jpg",
+        projectUrl: "#"
+      },
+      {
+        title: "Beauté naturelle",
+        description: "Ma bien-aimée au naturel. Aucun artifice ne peut rivaliser avec sa beauté authentique.",
+        category: "beaute",
+        imageUrl: "/05.jpg",
+        projectUrl: "#"
+      },
+      {
+        title: "Élégance royale",
+        description: "Vraiment une reine dans toute sa splendeur. Elle mérite une couronne.",
+        category: "mode",
         imageUrl: "/07.jpg",
         projectUrl: "#"
       },
       {
-        title: "Mode Contemporaine",
-        description: "Expression créative à travers la mode et les accessoires avec un style contemporain.",
-        category: "mode",
+        title: "Radiante",
+        description: "Mariène rayonnante comme un soleil. Elle éclaire tout sur son passage.",
+        category: "beaute",
         imageUrl: "/09.jpg",
+        projectUrl: "#"
+      },
+      {
+        title: "Charme irrésistible",
+        description: "Ce charme naturel qui m'a conquis dès le premier regard. Irrésistible Kitana.",
+        category: "photo",
+        imageUrl: "/10.jpg",
+        projectUrl: "#"
+      },
+      {
+        title: "Magnifique sous tous les angles",
+        description: "Peu importe l'angle, Mariène est toujours parfaite. Une beauté sans faille.",
+        category: "beaute",
+        imageUrl: "/11.jpg",
+        projectUrl: "#"
+      },
+      {
+        title: "Grâce naturelle",
+        description: "La grâce incarnée. Chaque geste de Mariène est empreint d'une élégance naturelle.",
+        category: "photo",
+        imageUrl: "/12.jpg",
+        projectUrl: "#"
+      },
+      {
+        title: "Regard captivant",
+        description: "Ces yeux dans lesquels je me perds chaque jour. Un regard qui parle d'amour.",
+        category: "photo",
+        imageUrl: "/13.jpg",
+        projectUrl: "#"
+      },
+      {
+        title: "Beauté ensoleillée",
+        description: "Ma reine sous les rayons du soleil. Elle brille plus fort que tous les astres.",
+        category: "beaute",
+        imageUrl: "/14.jpg",
         projectUrl: "#"
       }
     ];

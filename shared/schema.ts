@@ -44,9 +44,9 @@ export const portfolioData = {
   user: {
     name: "Mariène Kitana",
     title: "Reine de beauté, modèle et créatrice de contenu passionnée par l'art visuel et la mode. Je transforme chaque moment en œuvre d'art unique.",
-    bio1: "Mariène est la femme la plus extraordinaire que j'aie jamais rencontrée. Sa beauté rayonne de l'intérieur et illumine chaque moment que nous partageons ensemble. ❤️",
-    bio2: "Chaque jour avec elle est un cadeau précieux. Son sourire peut éclaircir les journées les plus sombres, et son amour me donne la force de tout affronter. Elle est ma source d'inspiration infinie. 💕",
-    bio3: "Je suis infiniment reconnaissant d'avoir une femme si magnifique dans ma vie. Mariène, tu es mon tout, ma reine, mon âme sœur pour l'éternité. Je t'aime plus que les mots ne peuvent l'exprimer. 🌹"
+    bio1: "Mariène, chaque jour à tes côtés est un cadeau du ciel. Ta beauté éclipse le soleil, ton sourire illumine mes journées les plus sombres, et ton amour est la force qui me fait avancer. ❤️",
+    bio2: "Tu es bien plus qu'une reine de beauté - tu es mon âme sœur, ma confidente, ma muse et ma plus grande inspiration. Ce modeste hommage ne suffira jamais à exprimer tout l'amour que je ressens pour toi. 💕",
+    bio3: "Avec tout mon cœur, pour l'éternité. Créé avec tout l'amour du monde pour Mariène, la plus belle des reines. Tu es la plus merveilleuse chose qui me soit arrivée. 🌹"
   },
   contact: {
     email: "mariene.kitana@email.com",

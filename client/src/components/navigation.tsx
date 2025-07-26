@@ -26,9 +26,11 @@ export default function Navigation() {
 
   const navItems = [
     { label: "💕 Mon Amour", id: "accueil" },
-    { label: "📸 Sa Beauté", id: "projets" },
-    { label: "💖 Mon Cœur", id: "apropos" },
-    { label: "💌 Lui Écrire", id: "contact" },
+    { label: "📸 Photos", id: "projets" },
+    { label: "🎬 Vidéos", id: "videos" },
+    { label: "💖 À Propos", id: "apropos" },
+    { label: "💌 Mots d'Amour", id: "messages" },
+    { label: "📞 Contact", id: "contact" },
   ];
 
   return (

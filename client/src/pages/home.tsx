@@ -2,7 +2,9 @@ import { motion } from "framer-motion";
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
 import ProjectsGallery from "@/components/projects-gallery";
+import VideoGallery from "@/components/video-gallery";
 import AboutSection from "@/components/about-section";
+import LoveMessages from "@/components/love-messages";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 import MagicalBackground from "@/components/magical-background";
@@ -24,7 +26,9 @@ export default function Home() {
         <Navigation />
         <HeroSection />
         <ProjectsGallery />
+        <VideoGallery />
         <AboutSection />
+        <LoveMessages />
         <ContactSection />
         <Footer />
       </div>
