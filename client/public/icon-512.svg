@@ -1,0 +1,20 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff69b4;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#e91e63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ad1457;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <circle cx="256" cy="256" r="256" fill="url(#heartGradient)"/>
+  <text x="256" y="300" font-family="Arial, sans-serif" font-size="180" text-anchor="middle" fill="white" filter="url(#glow)">💖</text>
+  <text x="256" y="380" font-family="Arial, sans-serif" font-size="36" text-anchor="middle" fill="white" opacity="0.9">Mariène Kitana</text>
+  <text x="256" y="420" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="white" opacity="0.7">Ma Reine</text>
+</svg>
