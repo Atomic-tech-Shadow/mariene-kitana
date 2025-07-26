@@ -1,10 +1,26 @@
 import express, { type Request, Response, NextFunction } from "express";
+import path from "path";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Serve static files with proper MIME types for Vercel
+app.use(express.static('client/public', {
+  setHeaders: (res, path) => {
+    if (path.endsWith('.mp4')) {
+      res.set('Content-Type', 'video/mp4');
+    }
+    if (path.endsWith('.jpg') || path.endsWith('.jpeg')) {
+      res.set('Content-Type', 'image/jpeg');
+    }
+    if (path.endsWith('.png')) {
+      res.set('Content-Type', 'image/png');
+    }
+  }
+}));
 
 app.use((req, res, next) => {
   const start = Date.now();

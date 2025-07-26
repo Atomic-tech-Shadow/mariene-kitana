@@ -73,6 +73,15 @@ export default function VideoGallery() {
                     controls
                     preload="metadata"
                     controlsList="nodownload"
+                    playsInline
+                    crossOrigin="anonymous"
+                    onError={(e) => {
+                      console.log('Video failed to load:', video.videoUrl);
+                      // Fallback to thumbnail
+                      e.currentTarget.style.display = 'none';
+                      const fallback = e.currentTarget.parentElement?.querySelector('.video-fallback') as HTMLImageElement;
+                      if (fallback) fallback.style.display = 'block';
+                    }}
                     style={{
                       filter: 'brightness(1.1) contrast(1.1) saturate(1.2)'
                     }}
@@ -80,6 +89,11 @@ export default function VideoGallery() {
                     <source src={video.videoUrl} type="video/mp4" />
                     Votre navigateur ne supporte pas la lecture vidéo.
                   </video>
+                  <img 
+                    src={video.thumbnail} 
+                    alt={video.title}
+                    className="video-fallback w-full h-64 object-cover rounded-t-lg hidden"
+                  />
                   
                   {/* Play overlay */}
                   <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
