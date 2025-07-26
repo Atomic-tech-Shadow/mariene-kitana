@@ -2,11 +2,13 @@
 
 ## Overview
 
-This is a modern portfolio website built with React, TypeScript, and Express.js. The application showcases a creative designer's work through an elegant, animated interface with project galleries, contact forms, and responsive design.
+This is a romantic portfolio website built with React, TypeScript, and Express.js, dedicated to Mariène Kitana. The application features incredible magical animations, floating hearts, sparkles, rainbow effects, and full mobile compatibility for Android and iOS devices. It includes PWA functionality for native app-like experience.
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Project Theme: Romantic website with incredible animations for Mariène Kitana
+Platform Requirements: Must be compatible with Android and iOS devices
 
 ## System Architecture
 
@@ -120,3 +122,16 @@ Preferred communication style: Simple, everyday language.
 - Static file serving capability
 
 The application is designed to be deployed on platforms like Replit, Vercel, or any Node.js hosting service with PostgreSQL support.
+
+## Recent Changes
+
+### January 26, 2025 - Mobile Compatibility & Incredible Animations
+- Enhanced with spectacular magical animations (hearts, sparkles, rainbow effects)
+- Added full Android and iOS compatibility with responsive design
+- Implemented PWA functionality for app-like experience
+- Added touch optimizations and mobile-specific performance improvements
+- Created floating magical background with reduced complexity on mobile
+- Added service worker for offline functionality
+- Optimized animations for mobile devices with reduced motion preferences
+- Added safe area support for notched devices (iPhone X+)
+- Implemented proper viewport handling and touch targets

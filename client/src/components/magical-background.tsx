@@ -9,6 +9,8 @@ export default function MagicalBackground() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      {/* Reduce elements on mobile */}
+      <div className="hidden sm:block">
       {/* Floating hearts */}
       {hearts.map((i) => (
         <motion.div
@@ -178,6 +180,66 @@ export default function MagicalBackground() {
           },
         }}
       />
+      </div>
+
+      {/* Simplified mobile version */}
+      <div className="block sm:hidden">
+        {/* Reduced hearts for mobile */}
+        {hearts.slice(0, 4).map((i) => (
+          <motion.div
+            key={`heart-mobile-${i}`}
+            className="absolute text-pink-400 opacity-40"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              fontSize: "1rem",
+            }}
+            animate={{
+              y: [-15, 15, -15],
+              x: [-8, 8, -8],
+              rotate: [0, 10, -10, 0],
+              scale: [0.8, 1.1, 0.8],
+              opacity: [0.2, 0.5, 0.2],
+              transition: {
+                duration: Math.random() * 4 + 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: Math.random() * 2,
+              },
+            }}
+          >
+            💖
+          </motion.div>
+        ))}
+
+        {/* Reduced sparkles for mobile */}
+        {sparkles.slice(0, 3).map((i) => (
+          <motion.div
+            key={`sparkle-mobile-${i}`}
+            className="absolute text-yellow-400 opacity-50"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              fontSize: "0.9rem",
+            }}
+            animate={{
+              y: [-20, 20, -20],
+              x: [-10, 10, -10],
+              rotate: [0, 180, 360],
+              scale: [0.6, 1.2, 0.6],
+              opacity: [0.1, 0.7, 0.1],
+              transition: {
+                duration: Math.random() * 5 + 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: Math.random() * 3,
+              },
+            }}
+          >
+            ✨
+          </motion.div>
+        ))}
+      </div>
     </div>
   );
 }

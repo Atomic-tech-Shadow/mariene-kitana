@@ -33,7 +33,7 @@ export default function LoveSurpriseButton() {
       {/* Surprise Button */}
       <motion.button
         onClick={handleClick}
-        className="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-full shadow-lg z-50 flex items-center justify-center animate-love-glow"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-full shadow-lg z-50 flex items-center justify-center animate-love-glow touch-manipulation"
         whileHover={{ 
           scale: 1.1,
           boxShadow: "0 0 30px rgba(255, 105, 180, 0.8)"
@@ -59,7 +59,7 @@ export default function LoveSurpriseButton() {
             }
           }}
         >
-          <Heart className="text-white text-xl" />
+          <Heart className="text-white text-lg sm:text-xl" />
         </motion.div>
       </motion.button>
 
@@ -156,10 +156,10 @@ export default function LoveSurpriseButton() {
             {loveMessages.map((message, i) => (
               <motion.div
                 key={i}
-                className="absolute bg-white/95 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg border-2 border-pink-300"
+                className="absolute bg-white/95 backdrop-blur-sm rounded-lg px-3 py-2 shadow-lg border-2 border-pink-300"
                 style={{
-                  left: `${20 + (i % 3) * 30}%`,
-                  top: `${20 + Math.floor(i / 3) * 25}%`,
+                  left: `${10 + (i % 2) * 40}%`,
+                  top: `${15 + Math.floor(i / 2) * 20}%`,
                 }}
                 initial={{ 
                   scale: 0, 
@@ -193,7 +193,7 @@ export default function LoveSurpriseButton() {
                 }}
               >
                 <motion.p
-                  className="text-pink-600 font-medium text-sm whitespace-nowrap"
+                  className="text-pink-600 font-medium text-xs sm:text-sm whitespace-nowrap"
                   animate={{
                     color: ["#e91e63", "#ff69b4", "#ff1493", "#e91e63"],
                     transition: {

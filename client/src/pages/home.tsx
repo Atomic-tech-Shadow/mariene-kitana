@@ -7,6 +7,7 @@ import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 import MagicalBackground from "@/components/magical-background";
 import LoveSurpriseButton from "@/components/love-surprise-button";
+import MobileOptimization from "@/components/mobile-optimization";
 
 export default function Home() {
   return (
@@ -15,7 +16,9 @@ export default function Home() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-background text-foreground relative"
+      style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}
     >
+      <MobileOptimization />
       <MagicalBackground />
       <div className="relative z-10">
         <Navigation />

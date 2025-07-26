@@ -12,7 +12,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="accueil" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-50 via-rose-50 to-red-50 pt-16 relative overflow-hidden love-hearts-bg">
+    <section id="accueil" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-50 via-rose-50 to-red-50 pt-16 pb-8 px-4 relative overflow-hidden love-hearts-bg">
       {/* Magical floating elements background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="floating-hearts absolute top-10 left-10 animate-heartbeat"></div>
@@ -62,7 +62,7 @@ export default function HeroSection() {
                 👑 Ma Reine de Beauté 👑
               </motion.span>
               <motion.h1 
-                className="font-bold text-5xl lg:text-7xl text-primary leading-tight mb-6 animate-text-dance"
+                className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-primary leading-tight mb-6 animate-text-dance"
                 {...loveText}
               >
                 Mon Amour,
@@ -85,7 +85,7 @@ export default function HeroSection() {
                 </motion.span>
               </motion.h1>
               <motion.p 
-                className="text-xl text-pink-700 leading-relaxed mb-8 font-medium"
+                className="text-base sm:text-lg md:text-xl text-pink-700 leading-relaxed mb-8 font-medium"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -109,7 +109,7 @@ export default function HeroSection() {
               >
                 <Button
                   onClick={() => scrollToSection("projets")}
-                  className="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white px-8 py-4 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-200 animate-love-glow romantic-sparkle"
+                  className="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-200 animate-love-glow romantic-sparkle w-full sm:w-auto"
                   size="lg"
                 >
                   💕 Voir ma beauté 💕
@@ -137,7 +137,7 @@ export default function HeroSection() {
                 <Button
                   onClick={() => scrollToSection("contact")}
                   variant="outline"
-                  className="border-2 border-pink-500 text-pink-600 hover:bg-pink-500 hover:text-white px-8 py-4 text-lg font-medium transition-all duration-200 animate-magical-entrance"
+                  className="border-2 border-pink-500 text-pink-600 hover:bg-pink-500 hover:text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium transition-all duration-200 animate-magical-entrance w-full sm:w-auto"
                   size="lg"
                 >
                   💌 M'écrire un message

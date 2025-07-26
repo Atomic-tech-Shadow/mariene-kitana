@@ -44,7 +44,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <motion.div 
-            className="font-bold text-xl text-primary animate-text-dance"
+            className="font-bold text-lg sm:text-xl text-primary animate-text-dance"
             whileHover={{ 
               scale: 1.1,
               textShadow: "0 0 15px rgba(255, 105, 180, 0.8)"
