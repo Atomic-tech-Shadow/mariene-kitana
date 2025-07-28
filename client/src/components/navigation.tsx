@@ -39,8 +39,8 @@ export default function Navigation() {
       animate={{ y: 0 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled 
-          ? "bg-white/95 backdrop-blur shadow-lg" 
-          : "glass-effect"
+          ? "glass-romantic shadow-lg romantic-glow" 
+          : "glass-premium"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">

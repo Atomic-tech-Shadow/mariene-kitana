@@ -12,7 +12,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="accueil" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-50 via-rose-50 to-red-50 pt-16 pb-8 px-4 relative overflow-hidden love-hearts-bg">
+    <section id="accueil" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-50 via-rose-50 to-red-50 pt-16 pb-8 px-4 relative overflow-hidden morphing-bg">
       {/* Magical floating elements background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="floating-hearts absolute top-10 left-10 animate-heartbeat"></div>
@@ -55,19 +55,28 @@ export default function HeroSection() {
           <motion.div {...fadeInUp}>
             <div className="mb-6">
               <motion.span 
-                className="inline-block px-6 py-3 bg-gradient-to-r from-pink-100 to-rose-100 text-pink-600 rounded-full text-sm font-medium mb-4 animate-love-glow romantic-sparkle"
+                className="inline-block px-6 py-3 glass-romantic text-pink-600 rounded-full text-sm font-medium mb-4 romantic-glow-intense love-shimmer"
                 whileHover={{ scale: 1.05 }}
-                {...magicAppear}
+                animate={{
+                  boxShadow: [
+                    "0 0 20px rgba(255, 105, 180, 0.3)",
+                    "0 0 40px rgba(255, 105, 180, 0.6)",
+                    "0 0 20px rgba(255, 105, 180, 0.3)"
+                  ]
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
               >
                 👑 Ma Reine de Beauté 👑
               </motion.span>
               <motion.h1 
-                className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-primary leading-tight mb-6 animate-text-dance"
-                {...loveText}
+                className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-primary leading-tight mb-6"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
               >
                 Mon Amour,
                 <motion.span 
-                  className="gradient-text block animate-rainbow-pulse"
+                  className="gradient-text-royal block"
                   animate={{
                     textShadow: [
                       "0 0 10px rgba(255, 105, 180, 0.5)",
