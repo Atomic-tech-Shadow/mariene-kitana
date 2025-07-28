@@ -56,7 +56,7 @@ export default function EnhancedMusicEffects({ isPlaying, volume, currentTrack }
   }, [isPlaying]);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-5 overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
       {/* Full Screen Audio Visualizer */}
       <div className="absolute bottom-0 left-0 right-0 h-32 flex items-end justify-center space-x-1 opacity-30">
         {audioWaves.map((height, index) => (
@@ -121,7 +121,7 @@ export default function EnhancedMusicEffects({ isPlaying, volume, currentTrack }
       )}
 
       {/* Corner Music Visualization */}
-      <div className="absolute top-4 left-4 w-16 h-16 glass-romantic rounded-full flex items-center justify-center">
+      <div className="absolute top-4 left-4 w-16 h-16 glass-romantic rounded-full flex items-center justify-center z-10">
         <motion.div
           className="w-8 h-8 border-2 border-pink-400 rounded-full"
           animate={{
@@ -153,7 +153,7 @@ export default function EnhancedMusicEffects({ isPlaying, volume, currentTrack }
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="absolute top-20 left-1/2 transform -translate-x-1/2 glass-romantic px-6 py-3 rounded-full"
+          className="absolute top-20 left-1/2 transform -translate-x-1/2 glass-romantic px-6 py-3 rounded-full z-10"
         >
           <div className="flex items-center space-x-3">
             <motion.div

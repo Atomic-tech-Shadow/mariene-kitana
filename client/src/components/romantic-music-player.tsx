@@ -139,7 +139,7 @@ export default function RomanticMusicPlayer() {
       {/* Music Player Toggle Button */}
       <motion.button
         onClick={() => setIsVisible(!isVisible)}
-        className="fixed bottom-6 right-6 z-50 glass-premium text-white p-4 rounded-full shadow-2xl hover:shadow-pink-500/25 transition-all duration-300"
+        className="fixed bottom-6 right-6 z-40 glass-premium text-white p-4 rounded-full shadow-2xl hover:shadow-pink-500/25 transition-all duration-300"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         animate={{
@@ -159,7 +159,7 @@ export default function RomanticMusicPlayer() {
             initial={{ opacity: 0, y: 100, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 100, scale: 0.8 }}
-            className="fixed bottom-24 right-6 z-40 w-80 glass-romantic rounded-2xl p-6 shadow-2xl romantic-glow"
+            className="fixed bottom-24 right-6 z-30 w-80 glass-romantic rounded-2xl p-6 shadow-2xl romantic-glow"
           >
             {/* Floating Hearts Animation */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-2xl">

@@ -36,7 +36,7 @@ export default function RomanticVisualizer({ isPlaying, currentTrack }: Romantic
   };
 
   return (
-    <div className="fixed bottom-4 left-4 z-40 w-64 h-16 glass-romantic rounded-2xl p-3 overflow-hidden">
+    <div className="fixed bottom-4 left-4 z-30 w-64 h-16 glass-romantic rounded-2xl p-3 overflow-hidden">
       {/* Track Info */}
       <div className="text-xs text-white/80 mb-2 truncate">
         🎵 {currentTrack}

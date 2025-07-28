@@ -22,6 +22,21 @@ app.use(express.static('client/public', {
   }
 }));
 
+// Serve attached assets
+app.use('/attached_assets', express.static('attached_assets', {
+  setHeaders: (res, path) => {
+    if (path.endsWith('.mp4')) {
+      res.set('Content-Type', 'video/mp4');
+    }
+    if (path.endsWith('.jpg') || path.endsWith('.jpeg')) {
+      res.set('Content-Type', 'image/jpeg');
+    }
+    if (path.endsWith('.png')) {
+      res.set('Content-Type', 'image/png');
+    }
+  }
+}));
+
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;

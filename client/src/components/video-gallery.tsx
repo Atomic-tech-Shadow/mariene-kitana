@@ -3,26 +3,33 @@ import { Play, Heart } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { fadeInUp } from "@/lib/animations";
 
+import kitana00 from "@assets/kitana/00.jpg";
+import kitana01 from "@assets/kitana/01.jpg";
+import kitana02 from "@assets/kitana/02.jpg";
+import video0 from "@assets/kitana/0.mp4";
+import video2 from "@assets/kitana/2.mp4";
+import video7 from "@assets/kitana/7.mp4";
+
 const videos = [
   {
     title: "Ton charme en mouvement",
     description: "Ma reine Mariène dans toute sa beauté naturelle. Chaque mouvement est pure élégance.",
-    thumbnail: "/00.jpg",
-    videoUrl: "/0.mp4",
+    thumbnail: kitana00,
+    videoUrl: video0,
     heart: "💖"
   },
   {
     title: "Joie contagieuse",
     description: "Le rire de ma bien-aimée qui illumine mes journées. Sa joie de vivre est contagieuse.",
-    thumbnail: "/01.jpg", 
-    videoUrl: "/2.mp4",
+    thumbnail: kitana01, 
+    videoUrl: video2,
     heart: "💫"
   },
   {
     title: "Grâce en mouvement",
     description: "Mariène dansant comme un ange. Sa grâce naturelle me coupe le souffle à chaque fois.",
-    thumbnail: "/02.jpg",
-    videoUrl: "/7.mp4", 
+    thumbnail: kitana02,
+    videoUrl: video7, 
     heart: "✨"
   }
 ];
@@ -65,10 +72,10 @@ export default function VideoGallery() {
                 transition: { duration: 0.3 }
               }}
             >
-              <Card className="bg-white/90 backdrop-blur-sm border-2 border-pink-200 shadow-lg hover:shadow-2xl transition-all duration-300 group overflow-hidden romantic-glow">
+              <Card className="bg-white/90 backdrop-blur-sm border-2 border-pink-200 shadow-lg hover:shadow-2xl transition-all duration-300 group overflow-hidden romantic-glow relative z-10">
                 <div className="relative">
                   <video 
-                    className="w-full h-64 object-cover rounded-t-lg"
+                    className="w-full h-64 object-cover rounded-t-lg relative z-20"
                     poster={video.thumbnail}
                     controls
                     preload="metadata"
@@ -96,8 +103,8 @@ export default function VideoGallery() {
                     className="video-fallback w-full h-64 object-cover rounded-t-lg hidden"
                   />
                   
-                  {/* Play overlay */}
-                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {/* Play overlay - disabled to avoid conflicts with video controls */}
+                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none">
                     <div className="bg-white/90 rounded-full p-4 shadow-lg">
                       <Play className="text-primary w-8 h-8" fill="currentColor" />
                     </div>
