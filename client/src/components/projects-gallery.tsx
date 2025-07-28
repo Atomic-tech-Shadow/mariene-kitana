@@ -19,10 +19,7 @@ export default function ProjectsGallery() {
     queryKey: ["/api/projects"],
   });
 
-  // Debug logging
-  console.log("Projects data:", projects);
-  console.log("Is loading:", isLoading);
-  console.log("Error:", error);
+
 
   const categories = [
     { id: "all", label: "💕 Toutes tes photos" },
@@ -201,13 +198,7 @@ export default function ProjectsGallery() {
           ))}
         </motion.div>
         
-        {/* Debug info */}
-        {filteredProjects.length === 0 && !isLoading && (
-          <div className="text-center py-8">
-            <p className="text-pink-600">Aucune photo trouvée. Total projets: {projects.length}</p>
-            <p className="text-sm text-pink-400 mt-2">Filtre actif: {activeFilter}</p>
-          </div>
-        )}
+
 
         {/* Projects Grid */}
         <motion.div 

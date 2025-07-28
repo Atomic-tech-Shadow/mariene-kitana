@@ -7,7 +7,7 @@ import { useState } from "react";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import RomanticLoadingScreen from "@/components/romantic-loading-screen";
-import RomanticMusicPlayer from "@/components/romantic-music-player";
+import BackgroundMusic from "@/components/background-music";
 import AdvancedParticleSystem from "@/components/advanced-particle-system";
 
 function Router() {
@@ -36,7 +36,7 @@ function App() {
             <AdvancedParticleSystem />
             <Toaster />
             <Router />
-            <RomanticMusicPlayer />
+            <BackgroundMusic />
           </>
         )}
       </TooltipProvider>
