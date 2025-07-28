@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Mail, Phone, MapPin, Send, Instagram, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Instagram, Linkedin, Globe } from "lucide-react";
 import { SiBehance, SiDribbble } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -77,6 +77,7 @@ export default function ContactSection() {
   ];
 
   const socialLinks = [
+    { icon: Globe, href: "https://mr-diomande-reseaux-sociaux.netlify.app/", label: "Réseaux Sociaux" },
     { icon: Instagram, href: "#", label: "Instagram" },
     { icon: Linkedin, href: "#", label: "LinkedIn" },
     { icon: SiBehance, href: "#", label: "Behance" },
