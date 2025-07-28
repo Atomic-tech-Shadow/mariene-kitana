@@ -32,12 +32,11 @@ export default function ProjectsGallery() {
 
   // Slideshow functionality
   useEffect(() => {
-    if (isSlideshow && filteredProjects.length > 0) {
+    if (isSlideshow && filteredProjects.length > 0 && selectedImage) {
       const interval = setInterval(() => {
-        setCurrentSlideIndex((prev) => (prev + 1) % filteredProjects.length);
-        if (selectedImage) {
-          setSelectedImage(filteredProjects[(currentSlideIndex + 1) % filteredProjects.length]);
-        }
+        const newIndex = (currentSlideIndex + 1) % filteredProjects.length;
+        setCurrentSlideIndex(newIndex);
+        setSelectedImage(filteredProjects[newIndex]);
       }, 3000);
       setSlideshowInterval(interval);
       return () => clearInterval(interval);
@@ -49,17 +48,20 @@ export default function ProjectsGallery() {
 
   // Keyboard navigation
   useEffect(() => {
-    if (!selectedImage) return;
+    if (!selectedImage || filteredProjects.length === 0) return;
 
     const handleKeyPress = (e: KeyboardEvent) => {
       switch (e.key) {
         case 'ArrowLeft':
+          e.preventDefault();
           prevImage();
           break;
         case 'ArrowRight':
+          e.preventDefault();
           nextImage();
           break;
         case 'Escape':
+          e.preventDefault();
           closeFullscreen();
           break;
         case ' ':
@@ -69,9 +71,11 @@ export default function ProjectsGallery() {
       }
     };
 
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [selectedImage, filteredProjects, currentSlideIndex]);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('keydown', handleKeyPress);
+      return () => window.removeEventListener('keydown', handleKeyPress);
+    }
+  }, [selectedImage, filteredProjects.length, currentSlideIndex]);
 
   const openFullscreen = (project: Project) => {
     setSelectedImage(project);
@@ -85,11 +89,14 @@ export default function ProjectsGallery() {
   };
 
   const nextImage = () => {
-    setCurrentSlideIndex((prev) => (prev + 1) % filteredProjects.length);
-    setSelectedImage(filteredProjects[(currentSlideIndex + 1) % filteredProjects.length]);
+    if (filteredProjects.length === 0) return;
+    const newIndex = (currentSlideIndex + 1) % filteredProjects.length;
+    setCurrentSlideIndex(newIndex);
+    setSelectedImage(filteredProjects[newIndex]);
   };
 
   const prevImage = () => {
+    if (filteredProjects.length === 0) return;
     const newIndex = currentSlideIndex === 0 ? filteredProjects.length - 1 : currentSlideIndex - 1;
     setCurrentSlideIndex(newIndex);
     setSelectedImage(filteredProjects[newIndex]);
@@ -216,6 +223,19 @@ export default function ProjectsGallery() {
                       src={project.imageUrl} 
                       alt={project.title}
                       className="w-full h-full object-cover transform transition-transform duration-300 hover:scale-110" 
+                      onError={(e) => {
+                        console.log('Image failed to load:', project.imageUrl);
+                        const target = e.currentTarget as HTMLImageElement;
+                        target.style.display = 'none';
+                        // Show a placeholder or retry logic
+                        const parent = target.parentElement;
+                        if (parent && !parent.querySelector('.image-fallback')) {
+                          const fallback = document.createElement('div');
+                          fallback.className = 'image-fallback w-full h-full bg-pink-100 flex items-center justify-center text-pink-400';
+                          fallback.innerHTML = `<div class="text-center"><div class="text-4xl mb-2">💖</div><div class="text-sm">Image en cours de chargement...</div></div>`;
+                          parent.appendChild(fallback);
+                        }
+                      }}
                     />
                     {/* Zoom overlay on hover */}
                     <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -323,6 +343,11 @@ export default function ProjectsGallery() {
                 src={selectedImage.imageUrl}
                 alt={selectedImage.title}
                 className="w-full h-full object-contain rounded-lg"
+                onError={(e) => {
+                  console.log('Fullscreen image failed to load:', selectedImage.imageUrl);
+                  const target = e.currentTarget as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
               />
 
               {/* Image info */}

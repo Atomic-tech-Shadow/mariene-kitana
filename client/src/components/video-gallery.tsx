@@ -78,8 +78,9 @@ export default function VideoGallery() {
                     onError={(e) => {
                       console.log('Video failed to load:', video.videoUrl);
                       // Fallback to thumbnail
-                      e.currentTarget.style.display = 'none';
-                      const fallback = e.currentTarget.parentElement?.querySelector('.video-fallback') as HTMLImageElement;
+                      const target = e.currentTarget as HTMLVideoElement;
+                      target.style.display = 'none';
+                      const fallback = target.parentElement?.querySelector('.video-fallback') as HTMLImageElement;
                       if (fallback) fallback.style.display = 'block';
                     }}
                     style={{
