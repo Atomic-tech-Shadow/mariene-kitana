@@ -4,6 +4,7 @@ import { Play, Pause, SkipForward, SkipBack, Volume2, Heart } from "lucide-react
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import RomanticVisualizer from "./romantic-visualizer";
+import EnhancedMusicEffects from "./enhanced-music-effects";
 
 interface Track {
   id: string;
@@ -16,38 +17,38 @@ interface Track {
 const romanticPlaylist: Track[] = [
   {
     id: "1",
-    title: "Perfect",
-    artist: "Ed Sheeran",
-    url: "https://audio-previews.elements.envatoapi.com/files/153682631/preview.mp3?response-content-disposition=attachment%3Bfilename%3D%22GWSRQHV-romantic-piano.mp3%22",
-    duration: 263
+    title: "Lakiya's Romantic Theme",
+    artist: "MR LAKSIDU",
+    url: "https://files.catbox.moe/rg70o9.mp3",
+    duration: 180
   },
   {
     id: "2", 
-    title: "All of Me",
-    artist: "John Legend",
-    url: "https://audio-previews.elements.envatoapi.com/files/149662698/preview.mp3?response-content-disposition=attachment%3Bfilename%3D%22CT3TKKA-love-story.mp3%22",
-    duration: 269
+    title: "Perfect Love",
+    artist: "Romantic Piano",
+    url: "https://www.soundjay.com/misc/sounds/magic-chime-02.mp3",
+    duration: 120
   },
   {
     id: "3",
-    title: "Thinking Out Loud",
-    artist: "Ed Sheeran", 
-    url: "https://audio-previews.elements.envatoapi.com/files/214302311/preview.mp3?response-content-disposition=attachment%3Bfilename%3D%22CWFPTWY-romantic-love.mp3%22",
-    duration: 281
+    title: "Eternal Love",
+    artist: "Ambient Romance", 
+    url: "https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3",
+    duration: 95
   },
   {
     id: "4",
-    title: "A Thousand Years",
-    artist: "Christina Perri",
-    url: "https://audio-previews.elements.envatoapi.com/files/206958228/preview.mp3?response-content-disposition=attachment%3Bfilename%3D%22BKQFPNG-romantic-wedding.mp3%22",
-    duration: 295
+    title: "Heart Melody",
+    artist: "Love Symphony",
+    url: "https://www.soundjay.com/misc/sounds/magic-wand-01.mp3",
+    duration: 87
   },
   {
     id: "5",
-    title: "Love Story",
-    artist: "Taylor Swift",
-    url: "https://audio-previews.elements.envatoapi.com/files/138729479/preview.mp3?response-content-disposition=attachment%3Bfilename%3D%22MVJGQVF-romantic-piano-ballad.mp3%22",
-    duration: 236
+    title: "Mariène's Song",
+    artist: "For My Queen",
+    url: "https://www.soundjay.com/misc/sounds/wind-chime-01.mp3",
+    duration: 145
   }
 ];
 
@@ -71,6 +72,19 @@ export default function RomanticMusicPlayer() {
     audio.addEventListener('timeupdate', updateTime);
     audio.addEventListener('ended', handleEnded);
     audio.volume = volume[0] / 100;
+
+    // Auto-play first track on load with user interaction
+    if (currentTrack === 0 && !isPlaying) {
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          setIsPlaying(true);
+        }).catch(() => {
+          // Auto-play prevented, will need user interaction
+          console.log("Auto-play prevented, waiting for user interaction");
+        });
+      }
+    }
 
     return () => {
       audio.removeEventListener('timeupdate', updateTime);
@@ -112,6 +126,13 @@ export default function RomanticMusicPlayer() {
 
   return (
     <>
+      {/* Enhanced Music Effects */}
+      <EnhancedMusicEffects 
+        isPlaying={isPlaying} 
+        volume={volume[0]} 
+        currentTrack={track.title}
+      />
+
       {/* Music Visualizer */}
       <RomanticVisualizer isPlaying={isPlaying} currentTrack={track.title} />
 
