@@ -10,6 +10,7 @@ import Footer from "@/components/footer";
 import MagicalBackground from "@/components/magical-background";
 import LoveSurpriseButton from "@/components/love-surprise-button";
 import MobileOptimization from "@/components/mobile-optimization";
+import BackgroundMusic from "@/components/background-music";
 
 export default function Home() {
   return (
@@ -33,6 +34,7 @@ export default function Home() {
         <Footer />
       </div>
       <LoveSurpriseButton />
+      <BackgroundMusic />
     </motion.div>
   );
 }
