@@ -3,33 +3,26 @@ import { Play, Heart } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { fadeInUp } from "@/lib/animations";
 
-import kitana00 from "@assets/kitana/00.jpg";
-import kitana01 from "@assets/kitana/01.jpg";
-import kitana02 from "@assets/kitana/02.jpg";
-import video0 from "@assets/kitana/0.mp4";
-import video2 from "@assets/kitana/2.mp4";
-import video7 from "@assets/kitana/7.mp4";
-
 const videos = [
   {
     title: "Ton charme en mouvement",
     description: "Ma reine Mariène dans toute sa beauté naturelle. Chaque mouvement est pure élégance.",
-    thumbnail: kitana00,
-    videoUrl: video0,
+    thumbnail: "/00.jpg",
+    videoUrl: "/0.mp4",
     heart: "💖"
   },
   {
     title: "Joie contagieuse",
     description: "Le rire de ma bien-aimée qui illumine mes journées. Sa joie de vivre est contagieuse.",
-    thumbnail: kitana01, 
-    videoUrl: video2,
+    thumbnail: "/01.jpg", 
+    videoUrl: "/2.mp4",
     heart: "💫"
   },
   {
     title: "Grâce en mouvement",
     description: "Mariène dansant comme un ange. Sa grâce naturelle me coupe le souffle à chaque fois.",
-    thumbnail: kitana02,
-    videoUrl: video7, 
+    thumbnail: "/02.jpg",
+    videoUrl: "/7.mp4", 
     heart: "✨"
   }
 ];

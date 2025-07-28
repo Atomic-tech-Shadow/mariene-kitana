@@ -149,6 +149,12 @@ The application is designed to be deployed on platforms like Replit, Vercel, or 
   - Floating music visualizer in corner
   - Ambient light effects synced with music playback
 
+- **✅ Fixed deployment compatibility issues**
+  - Moved all Mariène's photos and videos to client/public for Vercel compatibility
+  - Updated all image and video paths for proper production deployment
+  - Fixed z-index conflicts between music player and video controls
+  - Resolved photo display issues for production environment
+
 ### January 28, 2025 - Project Migration & Deployment
 - **✅ Successful migration from Replit Agent to Replit environment**
   - All dependencies properly installed and configured
